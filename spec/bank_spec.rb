@@ -38,7 +38,8 @@ describe Bank do
     let(:natwest) { described_class.new }
 
     it "takes the 'Print' method and returns statement heading." do
-      expect(natwest.print_statement).to eq "date || credit || debit || balance"
+      expect(natwest.print_statement_heading).to eq "date || credit || debit || balance"
     end
+
   end
 end
