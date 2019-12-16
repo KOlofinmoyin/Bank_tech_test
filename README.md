@@ -1,21 +1,24 @@
 Bank - Tech test
 =================
 
-Today, you'll practice doing a tech test.
+[Image to go here :)]
 
-For most tech tests, you'll essentially have unlimited time. This practice session is about producing the best code you can when there is a minimal time pressure.
-
-You'll get to practice your OO design and TDD skills.
-
-You'll work alone, and you'll also review your own code so you can practice reflecting on and improving your own work.
-
-Specification
+## Specification
 Requirements
-You should be able to interact with your code via a REPL like IRB or the JavaScript console. (You don't need to implement a command line interface that takes input from STDIN.)
-Deposits, withdrawal.
+1. You should be able to interact with your code via a REPL like IRB or the JavaScript console. (You don't need to implement a command line interface that takes input from STDIN.)
+
+2. Deposits,
+
+3. withdrawal.
+
+4. Printing
+
 Account statement (date, amount, balance) printing.
 Data can be kept in memory (it doesn't need to be stored to a database or anything).
-Acceptance criteria
+
+```
+(Original) Acceptance criteria
+===================
 Given a client makes a deposit of 1000 on 10-01-2012
 And a deposit of 2000 on 13-01-2012
 And a withdrawal of 500 on 14-01-2012
@@ -26,3 +29,60 @@ date || credit || debit || balance
 14/01/2012 || || 500.00 || 2500.00
 13/01/2012 || 2000.00 || || 3000.00
 10/01/2012 || 1000.00 || || 1000.00
+```
+
+## User Stories:
+   =============
+   #
+   # Feature: Bank App. - Deposit functionality
+```
+   Feature: Bank App. - Deposit functionality
+     As a client User of the Bank app.
+     I want to interact with an account
+     So That I can make a deposit to it.
+
+     Scenario: Make Deposit
+       Given I am on the 'make deposit' section of the app.
+       When I enter my deposit amount
+       And click 'Enter' to confirm
+       Then my deposit amount is added to my account 'balance'
+       And the amount is entered into a 'credit' history
+       And my deposit 'date' is stored
+
+     Scenario: Make Withdrawal
+       Given I am on the 'make withdrawal' section of the app.
+       When I enter my withdrawal amount
+       And Click enter to confirm
+       Then my withdrawal amount is deducted from my account 'balance'
+       And and the amount is entered into a 'debit' history
+       And and my withdrawal 'date' is stored
+
+     Scenario: Print Bank statement
+       Given I am on the options section of the app.
+       When I select the 'Print bank statement' option
+       Then all my deposit history
+       And all my withdrawal history is displayed in the formate 'date' | 'credit' | 'debit | 'balance'
+```
+
+### Test Plan:
+**Make a Deposit**
+INPUT       |     OUTPUT
+=========================
+1000 on 16-12-2016     ->     "You've deposited 1000.00 on 16/12/2012 and your balance is: 1000.00"
+2000 on 17-12-2016     ->     "You've deposited 2000.00 on 17/12/2012 and your balance is: 3000.00"
+
+**Make a Withdrawal**
+INPUT       |     OUTPUT
+=========================
+500 on 16-12-2016     ->     "You've withdrawn 500 on 16/12/2012 and your balance is: 2500"
+500 on 17-12-2016     ->     "You've withdrawn 500 on 17/12/2012 and your balance is: 2000"
+
+**PrintStatement**
+INPUT       |     OUTPUT
+=========================
+"Print" ->
+            date || credit || debit || balance
+            17/12/2012 || || 500.00 || 2000.00
+            17/12/2012 || 2000.00 || || 2500.00            
+            16/12/2012 || || 500.00 || 500.00            
+            16/12/2012 || 1000.00 || || 1000.00
