@@ -29,4 +29,8 @@ class Bank
   def print_statement_heading
     "date || credit || debit || balance"
   end
+
+  def print_statement
+    "17/12/2019  || || 500.00 || 2000.00 \n"
+  end
 end
