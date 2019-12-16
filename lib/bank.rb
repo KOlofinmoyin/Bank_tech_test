@@ -23,6 +23,6 @@ class Bank
     fail "Error: Your balance is £#{@balance}.00, and you cannot make a withdrawal. Try to arrange an overdraft." unless @withdrawal_amount <= @balance
 
     @balance -= @withdrawal_amount
-    "You've withdrawn £#{@withdrawal_amount}.00 on 16/12/2012 and your balance is: £#{@balance}.00"
+    "You've withdrawn £#{@withdrawal_amount}.00 on #{@today} and your balance is: £#{@balance}.00"
   end
 end
