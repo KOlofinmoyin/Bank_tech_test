@@ -33,4 +33,8 @@ class Bank
   def print_statement
     "#{@today} || || #{@withdrawal_amount}.00 || #{@balance}.00 \n"
   end
+
+  def print_credit_transactions
+    "#{@today} || #{@amount}.00 || || #{@balance}.00 \n"
+  end
 end

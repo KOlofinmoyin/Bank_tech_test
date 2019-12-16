@@ -35,7 +35,7 @@ describe Bank do
   end
 
   context "Print Bank Statement" do
-    let(:amount)  { amount = 3000 }
+    let(:amount)  { amount = 2500 }
     let(:invalid_amount) { invalid_amount = 0 }
     let(:withdrawal_amount) { withdrawal_amount = 500 }
 
@@ -44,11 +44,15 @@ describe Bank do
     end
 
     it "takes the #print_statement' method and returns 'debit' statement rows." do
-      natwest.make_a_deposit(2500)
+      natwest.make_a_deposit(amount)
       natwest.make_a_withdrawal(withdrawal_amount)
       expect(natwest.print_statement).to eq "#{today} || || #{withdrawal_amount}.00 || #{natwest.balance}.00 \n"
     end
 
+    it "takes the #print_credit_transactions' method and returns 'credit' statement rows." do
+      natwest.make_a_deposit(amount)
+      expect(natwest.print_credit_transactions).to eq "#{today} || #{amount}.00 || || #{natwest.balance}.00 \n"
+    end
 
   end
 end
