@@ -4,7 +4,6 @@ Bank - Tech test
 [Image to go here :)]
 
 ## Specification
-Requirements
 1. Users should be able to interact with the code via a REPL e.g. IRB or the JavaScript console.
 2. Features: Deposits, withdrawal, Printing, Account statement (date, amount, balance) printing. Data can be kept in memory (it doesn't need to be stored to a database or anything).
 
@@ -52,7 +51,7 @@ date || credit || debit || balance
        And and the amount is entered into a 'debit' history
        And and my withdrawal 'date' is stored
 
-   Feature: Bank App. - Withdrawal functionality
+   Feature: Bank App. - Print functionality
      As a client User of the Bank app.
      I want to interact with an account
      So That I can print its statement.
@@ -66,20 +65,26 @@ date || credit || debit || balance
 
 ### Test Plan:
 #### Make a Deposit
+```
 INPUT       |     OUTPUT
 1000 on 16-12-2016     ->     "You've deposited 1000.00 on 16/12/2012 and your balance is: 1000.00"
 2000 on 17-12-2016     ->     "You've deposited 2000.00 on 17/12/2012 and your balance is: 3000.00"
+```
 
 #### Make a Withdrawal
+```
 INPUT       |     OUTPUT
 500 on 16-12-2016     ->     "You've withdrawn 500 on 16/12/2012 and your balance is: 2500"
 500 on 17-12-2016     ->     "You've withdrawn 500 on 17/12/2012 and your balance is: 2000"
+```
 
-####PrintStatement
-### INPUT       |     OUTPUT
+#### PrintStatement
+```
+INPUT       |     OUTPUT
 "Print" ->
             date || credit || debit || balance
             17/12/2012 || || 500.00 || 2000.00
             17/12/2012 || 2000.00 || || 2500.00            
             16/12/2012 || || 500.00 || 500.00            
             16/12/2012 || 1000.00 || || 1000.00
+```
