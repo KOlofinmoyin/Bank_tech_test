@@ -79,7 +79,6 @@ INPUT       |     OUTPUT
 ```
 
 #### PrintStatement
-```
 INPUT       |     OUTPUT
 "Print" ->
             date || credit || debit || balance
@@ -87,4 +86,3 @@ INPUT       |     OUTPUT
             17/12/2012 || 2000.00 || || 2500.00            
             16/12/2012 || || 500.00 || 500.00            
             16/12/2012 || 1000.00 || || 1000.00
-```
