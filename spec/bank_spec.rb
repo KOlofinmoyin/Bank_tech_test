@@ -44,7 +44,9 @@ describe Bank do
     end
 
     it "takes the #print_statement' method and returns 'debit' statement rows." do
-      expect(natwest.print_statement).to eq "17/12/2019  || || 500.00 || 2000.00 \n"
+      natwest.make_a_deposit(2500)
+      natwest.make_a_withdrawal(withdrawal_amount)
+      expect(natwest.print_statement).to eq "#{today} || || #{withdrawal_amount}.00 || #{natwest.balance}.00 \n"
     end
 
 

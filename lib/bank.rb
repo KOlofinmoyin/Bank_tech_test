@@ -31,6 +31,6 @@ class Bank
   end
 
   def print_statement
-    "17/12/2019  || || 500.00 || 2000.00 \n"
+    "#{@today} || || #{@withdrawal_amount}.00 || #{@balance}.00 \n"
   end
 end
