@@ -43,10 +43,10 @@ describe Bank do
       expect(natwest.print_statement_heading).to eq "date || credit || debit || balance"
     end
 
-    it "takes the #print_statement' method and returns 'debit' statement rows." do
+    it "takes the #print_debit_transactions' method and returns 'debit' statement rows." do
       natwest.make_a_deposit(amount)
       natwest.make_a_withdrawal(withdrawal_amount)
-      expect(natwest.print_statement).to eq "#{today} || || #{withdrawal_amount}.00 || #{natwest.balance}.00 \n"
+      expect(natwest.print_debit_transactions).to eq "#{today} || || #{withdrawal_amount}.00 || #{natwest.balance}.00 \n"
     end
 
     it "takes the #print_credit_transactions' method and returns 'credit' statement rows." do

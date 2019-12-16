@@ -30,7 +30,7 @@ class Bank
     "date || credit || debit || balance"
   end
 
-  def print_statement
+  def print_debit_transactions
     "#{@today} || || #{@withdrawal_amount}.00 || #{@balance}.00 \n"
   end
 
