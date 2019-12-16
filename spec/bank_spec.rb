@@ -1,11 +1,13 @@
 require 'bank.rb'
 
 describe Bank do
+  let(:natwest) { described_class.new }
+  let(:today) { today = DateTime.now.strftime("%d/%m/%Y") }
+
+
   context "Make Deposit" do
-    let(:natwest) { described_class.new }
     let(:amount)  { amount = 1000 }
     let(:invalid_amount) { invalid_amount = 0 }
-    let(:today) { today = DateTime.now.strftime("%d/%m/%Y") }
 
     it "takes 1000 and returns You've deposited £1000.00 on 16/12/2019 and your balance is: £1000.00" do
       expect(natwest.make_a_deposit(amount)).to eq "You've deposited £#{amount}.00 on #{today} and your balance is: £#{natwest.balance}.00"
@@ -17,11 +19,9 @@ describe Bank do
   end
 
   context "Make Withdrawal" do
-    let(:natwest) { described_class.new }
     let(:amount)  { amount = 3000 }
     let(:invalid_amount) { invalid_amount = 0 }
     let(:withdrawal_amount) { withdrawal_amount = 500 }
-    let(:today) { today = DateTime.now.strftime("%d/%m/%Y") }
 
       it "takes 500 and returns You've withdrawn 500 on 16/12/2019 and your balance is: £2500.00" do
         natwest.make_a_deposit(amount)
@@ -35,11 +35,9 @@ describe Bank do
   end
 
   context "Print Bank Statement" do
-    let(:natwest) { described_class.new }
 
     it "takes the 'Print' method and returns statement heading." do
       expect(natwest.print_statement_heading).to eq "date || credit || debit || balance"
     end
-
   end
 end
