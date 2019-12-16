@@ -20,10 +20,11 @@ describe Bank do
     let(:natwest) { described_class.new }
     let(:amount)  { amount = 3000 }
     let(:invalid_amount) { invalid_amount = 0 }
+    let(:withdrawal_amount) { withdrawal_amount = 500 }
 
       it "takes 500 and returns You've withdrawn 500 on 16/12/2012 and your balance is: £2500.00" do
         natwest.make_a_deposit(amount)
-        expect(natwest.make_a_withdrawal(500)).to eq "You've withdrawn £500.00 on 16/12/2012 and your balance is: £2500.00"
+        expect(natwest.make_a_withdrawal(withdrawal_amount)).to eq "You've withdrawn £#{withdrawal_amount}.00 on 16/12/2012 and your balance is: £2500.00"
       end
 
       it "takes an amount less than User's balance and returns an Error exception." do
