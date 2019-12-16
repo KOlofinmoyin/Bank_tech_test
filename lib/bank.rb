@@ -25,4 +25,8 @@ class Bank
     @balance -= @withdrawal_amount
     "You've withdrawn £#{@withdrawal_amount}.00 on #{@today} and your balance is: £#{@balance}.00"
   end
+
+  def print_statement
+    p "date || credit || debit || balance"
+  end
 end

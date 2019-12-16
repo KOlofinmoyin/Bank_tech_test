@@ -33,4 +33,12 @@ describe Bank do
         expect { natwest.make_a_withdrawal(10) }.to raise_error("Error: Your balance is £#{natwest.balance}.00, and you cannot make a withdrawal. Try to arrange an overdraft.")
       end
   end
+
+  context "Print Bank Statement" do
+    let(:natwest) { described_class.new }
+
+    it "takes the 'Print' method and returns statement heading." do
+      expect(natwest.print_statement).to eq "date || credit || debit || balance"
+    end
+  end
 end
