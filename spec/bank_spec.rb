@@ -28,7 +28,7 @@ describe Bank do
 
       it "takes an amount less than User's balance and returns an Error exception." do
         natwest.make_a_deposit(1)
-        expect { natwest.make_a_withdrawal(10) }.to raise_error("Error: Your balance is £0.00, and you cannot make a withdrawal. Try to arrange an overdraft.")
+        expect { natwest.make_a_withdrawal(10) }.to raise_error("Error: Your balance is £#{natwest.balance}.00, and you cannot make a withdrawal. Try to arrange an overdraft.")
       end
   end
 end
