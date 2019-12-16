@@ -5,16 +5,8 @@ Bank - Tech test
 
 ## Specification
 Requirements
-1. You should be able to interact with your code via a REPL like IRB or the JavaScript console. (You don't need to implement a command line interface that takes input from STDIN.)
-
-2. Deposits,
-
-3. withdrawal.
-
-4. Printing
-
-Account statement (date, amount, balance) printing.
-Data can be kept in memory (it doesn't need to be stored to a database or anything).
+1. Users should be able to interact with the code via a REPL e.g. IRB or the JavaScript console.
+2. Features: Deposits, withdrawal, Printing, Account statement (date, amount, balance) printing. Data can be kept in memory (it doesn't need to be stored to a database or anything).
 
 ```
 (Original) Acceptance criteria
@@ -32,9 +24,7 @@ date || credit || debit || balance
 ```
 
 ## User Stories:
-   =============
-   #
-   # Feature: Bank App. - Deposit functionality
+
 ```
    Feature: Bank App. - Deposit functionality
      As a client User of the Bank app.
@@ -49,6 +39,11 @@ date || credit || debit || balance
        And the amount is entered into a 'credit' history
        And my deposit 'date' is stored
 
+   Feature: Bank App. - Withdrawal functionality
+     As a client User of the Bank app.
+     I want to interact with an account
+     So That I can make a withdrawal from it.
+
      Scenario: Make Withdrawal
        Given I am on the 'make withdrawal' section of the app.
        When I enter my withdrawal amount
@@ -56,6 +51,11 @@ date || credit || debit || balance
        Then my withdrawal amount is deducted from my account 'balance'
        And and the amount is entered into a 'debit' history
        And and my withdrawal 'date' is stored
+
+   Feature: Bank App. - Withdrawal functionality
+     As a client User of the Bank app.
+     I want to interact with an account
+     So That I can print its statement.
 
      Scenario: Print Bank statement
        Given I am on the options section of the app.
@@ -65,21 +65,18 @@ date || credit || debit || balance
 ```
 
 ### Test Plan:
-**Make a Deposit**
+#### Make a Deposit
 INPUT       |     OUTPUT
-=========================
 1000 on 16-12-2016     ->     "You've deposited 1000.00 on 16/12/2012 and your balance is: 1000.00"
 2000 on 17-12-2016     ->     "You've deposited 2000.00 on 17/12/2012 and your balance is: 3000.00"
 
-**Make a Withdrawal**
+#### Make a Withdrawal
 INPUT       |     OUTPUT
-=========================
 500 on 16-12-2016     ->     "You've withdrawn 500 on 16/12/2012 and your balance is: 2500"
 500 on 17-12-2016     ->     "You've withdrawn 500 on 17/12/2012 and your balance is: 2000"
 
-**PrintStatement**
-INPUT       |     OUTPUT
-=========================
+####PrintStatement
+### INPUT       |     OUTPUT
 "Print" ->
             date || credit || debit || balance
             17/12/2012 || || 500.00 || 2000.00
