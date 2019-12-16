@@ -12,7 +12,7 @@ describe Bank do
     end
 
     it "takes 0 and returns 'Error: Your deposit must be above £1.00'" do
-      expect { natwest.make_a_deposit(0) }.to raise_error("Error: Your deposit must be above £#{Bank::MINIMUM_AMOUNT}.00")
+      expect { natwest.make_a_deposit(0) }.to raise_error("Error: Your deposit must be at least £#{Bank::MINIMUM_AMOUNT}.00")
     end
   end
 
@@ -24,6 +24,11 @@ describe Bank do
       it "takes 500 and returns You've withdrawn 500 on 16/12/2012 and your balance is: £2500.00" do
         natwest.make_a_deposit(amount)
         expect(natwest.make_a_withdrawal(500)).to eq "You've withdrawn £500.00 on 16/12/2012 and your balance is: £2500.00"
+      end
+
+      it "takes an amount less than User's balance and returns an Error exception." do
+        natwest.make_a_deposit(1)
+        expect { natwest.make_a_withdrawal(10) }.to raise_error("Error: Your balance is £0.00, and you cannot make a withdrawal. Try to arrange an overdraft.")
       end
   end
 end
