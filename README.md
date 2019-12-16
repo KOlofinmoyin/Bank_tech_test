@@ -80,12 +80,12 @@ INPUT       |     OUTPUT
 
 #### PrintStatement
 INPUT       |     OUTPUT
-"Print" ->        date || credit || debit || balance
+x - "Print" ->        date || credit || debit || balance
 
-"Print" ->        date || credit || debit || balance
+x - "Print" ->        date || credit || debit || balance
                   17/12/2019  || || 500.00 || 2000.00
 
-"Print" ->        date || credit || debit || balance
+x - "Print" ->        date || credit || debit || balance
                   17/12/2019  || 2000.00 || || 2500.00
 
 
