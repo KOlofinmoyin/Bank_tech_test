@@ -25,7 +25,7 @@ describe Bank do
 
       it "takes 500 and returns You've withdrawn 500 on 16/12/2019 and your balance is: £2500.00" do
         natwest.make_a_deposit(amount)
-        expect(natwest.make_a_withdrawal(withdrawal_amount)).to eq "You've withdrawn £#{withdrawal_amount}.00 on #{today} and your balance is: £2500.00"
+        expect(natwest.make_a_withdrawal(withdrawal_amount)).to eq "You've withdrawn £#{withdrawal_amount}.00 on #{today} and your balance is: £#{natwest.balance}.00"
       end
 
       it "takes an amount less than User's balance and returns an Error exception." do
