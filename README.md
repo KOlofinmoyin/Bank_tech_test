@@ -1,7 +1,8 @@
 Bank - Tech test
 =================
 
-[Image to go here :)]
+![bank_tech_test](https://user-images.githubusercontent.com/33905131/71023714-37025000-20fb-11ea-8c9f-8eaad77598e5.gif)
+
 
 ## Specification
 1. Users should be able to interact with the code via a REPL e.g. IRB or the JavaScript console.
@@ -23,6 +24,9 @@ date || credit || debit || balance
 ```
 
 ## User Stories:
+
+![bank_tech_test_record_transactions](https://user-images.githubusercontent.com/33905131/71020971-3d8dc900-20f5-11ea-86bd-8477c457fd7d.gif)
+
 
 ```
    Feature: Bank App. - Deposit functionality
