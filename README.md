@@ -84,6 +84,9 @@ date || credit || debit || balance
 ```
 
 ### Test Plan:
+Test coverage
+![Screenshot 2019-12-18 at 15 13 55](https://user-images.githubusercontent.com/33905131/71098093-0973e000-21a9-11ea-94fd-9486427fb797.png)
+
 #### Make a Deposit
 ```
 INPUT       |     OUTPUT
