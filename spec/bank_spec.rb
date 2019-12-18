@@ -9,9 +9,8 @@ describe Bank do
     let(:deposit_amount)  { deposit_amount = 15000 }
     let(:invalid_amount) { invalid_amount = 0 }
 
-    it "takes 1000 and returns You've deposited £1000.00 on 16/12/2019 and your balance is: £1000.00" do
+    it "takes 15000 and returns '18/12/2019 || 15000 || || 15000'" do
       expect(natwest.make_a_deposit(deposit_amount)).to eq ["#{today} || #{deposit_amount} || || #{natwest.balance}"]
-      # expect(natwest.make_a_deposit(amount)).to eq "You've deposited £#{amount}.00 on #{today} and your balance is: £#{natwest.balance}.00"
     end
 
     it "takes 0 and returns 'Error: Your deposit must be above £1.00'" do
@@ -24,7 +23,7 @@ describe Bank do
     let(:invalid_amount) { invalid_amount = 0 }
     let(:withdrawal_amount) { withdrawal_amount = 900 }
 
-    it "takes 500 and returns You've withdrawn 500 on 16/12/2019 and your balance is: £2500.00" do
+    it "takes 900 and returns '18/12/2019 || || 900 || 14100'" do
       natwest.make_a_deposit(amount)
       expect(natwest.make_a_withdrawal(withdrawal_amount)).to eq ["#{today} || #{amount} || || 15000"].push("#{today} || || #{withdrawal_amount} || #{natwest.balance}")
 
