@@ -6,11 +6,12 @@ describe Bank do
 
 
   context "Make Deposit" do
-    let(:amount)  { amount = 1000 }
+    let(:deposit_amount)  { deposit_amount = 15000 }
     let(:invalid_amount) { invalid_amount = 0 }
 
     it "takes 1000 and returns You've deposited £1000.00 on 16/12/2019 and your balance is: £1000.00" do
-      expect(natwest.make_a_deposit(amount)).to eq "You've deposited £#{amount}.00 on #{today} and your balance is: £#{natwest.balance}.00"
+      expect(natwest.make_a_deposit(deposit_amount)).to eq ["#{today} || #{deposit_amount} || || #{natwest.balance}"]
+      # expect(natwest.make_a_deposit(amount)).to eq "You've deposited £#{amount}.00 on #{today} and your balance is: £#{natwest.balance}.00"
     end
 
     it "takes 0 and returns 'Error: Your deposit must be above £1.00'" do
@@ -19,39 +20,34 @@ describe Bank do
   end
 
   context "Make Withdrawal" do
-    let(:amount)  { amount = 3000 }
+    let(:amount)  { amount = 15000 }
     let(:invalid_amount) { invalid_amount = 0 }
-    let(:withdrawal_amount) { withdrawal_amount = 500 }
+    let(:withdrawal_amount) { withdrawal_amount = 900 }
 
-      it "takes 500 and returns You've withdrawn 500 on 16/12/2019 and your balance is: £2500.00" do
-        natwest.make_a_deposit(amount)
-        expect(natwest.make_a_withdrawal(withdrawal_amount)).to eq "You've withdrawn £#{withdrawal_amount}.00 on #{today} and your balance is: £#{natwest.balance}.00"
-      end
+    it "takes 500 and returns You've withdrawn 500 on 16/12/2019 and your balance is: £2500.00" do
+      natwest.make_a_deposit(amount)
+      expect(natwest.make_a_withdrawal(withdrawal_amount)).to eq ["#{today} || #{amount} || || 15000"].push("#{today} || || #{withdrawal_amount} || #{natwest.balance}")
 
-      it "takes an amount less than User's balance and returns an Error exception." do
-        natwest.make_a_deposit(1)
-        expect { natwest.make_a_withdrawal(10) }.to raise_error("Error: Your balance is £#{natwest.balance}.00, and you cannot make a withdrawal. Try to arrange an overdraft.")
-      end
+    end
+
+    it "takes an amount less than User's balance and returns an Error exception." do
+      natwest.make_a_deposit(1)
+      expect { natwest.make_a_withdrawal(10) }.to raise_error("Error: Your balance is £#{natwest.balance}.00, and you cannot make a withdrawal. Try to arrange an overdraft.")
+    end
   end
 
   context "Print Bank Statement" do
-    let(:deposit_amount)  { deposit_amount = 2500 }
-    let(:invalid_amount) { invalid_amount = 0 }
+    let(:amount)  { amount = 15000 }
     let(:withdrawal_amount) { withdrawal_amount = 500 }
 
-    it "takes the '#print_statement_heading' method and returns statement heading." do
-      expect(natwest.print_statement_heading).to eq "date || credit || debit || balance"
-    end
 
-    it "takes the #print_debit_transactions' method and returns 'debit' statement rows." do
-      natwest.make_a_deposit(deposit_amount)
-      natwest.make_a_withdrawal(withdrawal_amount)
-      expect(natwest.print_debit_transactions).to eq "#{today} || || #{withdrawal_amount}.00 || #{natwest.balance}.00 \n"
-    end
+    describe '#print_statement' do
 
-    it "takes the #print_credit_transactions' method and returns 'credit' statement rows." do
-      natwest.make_a_deposit(deposit_amount)
-      expect(natwest.print_credit_transactions).to eq "#{today} || #{deposit_amount}.00 || || #{natwest.balance}.00 \n"
+      it "takes the '#print_statement' method and prints historical (deposit & withdrawal) transaction details in reverse order." do
+        natwest.make_a_deposit(amount)
+        natwest.make_a_withdrawal(withdrawal_amount)
+        expect(natwest.print_statement).to eq ["#{today} || || #{withdrawal_amount} || #{natwest.balance}", "18/12/2019 || #{amount} || || 15000"]
+      end
     end
 
   end
