@@ -1,8 +1,24 @@
 Bank - Tech test
 =================
+An interactive commandline program that receives a user's deposit & withdrawal bank transactions and prints them out to the screen chronologically (descending order).
 
 ![bank_tech_test](https://user-images.githubusercontent.com/33905131/71023714-37025000-20fb-11ea-8c9f-8eaad77598e5.gif)
 
+### Using the app.
+First, clone this repository. Then:
+
+```
+> bundle install
+> rspec # Run the tests to ensure it works
+
+> #use irb or REPL to interact with the code.
+> require './lib/bank.rb' # require the file
+> bank_branch = Bank.new # create a new bank instance
+> bank_branch.make_a_deposit('15000.00') # to make a deposit
+> bank_branch.withdraw('900.00') # to make a withdrawal
+> bank_branch.print_statement # to print out the accounts full transaction history
+> exit # to quit
+```
 
 ## Specification
 1. Users should be able to interact with the code via a REPL e.g. IRB or the JavaScript console.
