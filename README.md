@@ -2,7 +2,8 @@ Bank - Tech test
 =================
 An interactive commandline program that receives a user's deposit & withdrawal bank transactions and prints them out to the screen chronologically (descending order).
 
-![bank_tech_test](https://user-images.githubusercontent.com/33905131/71023714-37025000-20fb-11ea-8c9f-8eaad77598e5.gif)
+![bank_tech_test_screencast](https://user-images.githubusercontent.com/33905131/71269875-37435b00-2348-11ea-929e-632028bf099a.gif)
+
 
 ### Using the app.
 First, clone this repository. Then:
@@ -102,6 +103,7 @@ INPUT       |     OUTPUT
 ```
 
 #### PrintStatement
+```
 INPUT       |     OUTPUT
 x - "Print" ->        date || credit || debit || balance
 
@@ -117,3 +119,4 @@ x - "Print" ->        date || credit || debit || balance
                   17/12/2012 || 2000.00 || || 2500.00            
                   16/12/2012 || || 500.00 || 500.00            
                   16/12/2012 || 1000.00 || || 1000.00
+```
