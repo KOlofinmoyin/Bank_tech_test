@@ -2,7 +2,8 @@ Bank - Tech test
 =================
 An interactive commandline program that receives a user's deposit & withdrawal bank transactions and prints them out to the screen chronologically (descending order).
 
-![bank_tech_test_screencast](https://user-images.githubusercontent.com/33905131/71269875-37435b00-2348-11ea-929e-632028bf099a.gif)
+![bank_tech_test_screencast](https://user-images.githubusercontent.com/33905131/71270938-b76ac000-234a-11ea-92f9-af0f6b87bdd9.gif)
+
 
 
 ### Using the app.
